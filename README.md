@@ -194,13 +194,14 @@ watch(active, (newValue) => {
 });
 ```
 
-#### 使用json-server 搭建 Mock Server(模拟数据)
-
-##### 介绍mock-server 与 json-server
-
-* 前后端分离的架构
-当前端需要依赖接口开发而后端还没有提供接口时，需要一台轻量级的本地服务器来模拟数据作为后端接口使用
-
-##### ele-h5-server架构
-
-##### 使用json-server搭建mock-server
+#### 设置请求代理服务器
+* vite.config.ts
+```
+server: {
+    port: 3000,
+    proxy: {
+      '/api': 'http://localhost:8000', //请求数据
+      '/imgs': 'http://localhost:8000' //请求图片
+    }
+  }
+```
