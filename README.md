@@ -126,5 +126,81 @@ echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitl
 npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 ```
 
+#### 配置ESLint
 
+##### 安装vscode扩展 ESLint
 
+* 此扩展是当代码不符合eslint规范时会显示波浪线
+
+##### .eslintrc.cjs中配置自己的要求
+
+#### 创建.prettierrc.js
+
+##### prettierrc与eslint结合使用
+
+* .prettierrc.js里面配置自己需要的
+
+如果.prettierrc.js文件的东西不生效，看是否是执行的是.prettierrc.json里面的
+
+#### 安装Vant-ui
+
+```
+npm i vant
+```
+
+##### 导入Vant-ui
+
+```
+// main.ts
+import 'vant/lib/index.css'
+```
+#### 制作底部tab栏
+
+##### 如何引入组件
+```
+import { Tabbar, TabbarItem } from 'vant'
+```
+
+#### vue-router实现页面路由
+
+##### 如何配置路由？
+
+* 配置tab栏路由展示到App主页面
+* tab栏切换的三个页面作为tab栏路由的子路由，展示在tab栏页面
+具体看router文件
+
+#### 切换tab栏时切换页面
+
+首先router文件中配置好路由
+
+* tabs.vue
+```
+import { useRoute, useRouter } from 'vue-router'
+
+// 拿到路由
+const route = useRoute();
+// 拿到路由器
+const router = useRouter();
+
+// 将路由与tab栏绑定
+const active = ref(route.name as string);
+
+// Vue3 watch 第一个参数：监听对象   第二个参数：事件回调
+// 对路由进行监听，路由改变就跳转
+watch(active, (newValue) => {
+  router.push({
+    name: newValue
+  });
+});
+```
+
+#### 使用json-server 搭建 Mock Server(模拟数据)
+
+##### 介绍mock-server 与 json-server
+
+* 前后端分离的架构
+当前端需要依赖接口开发而后端还没有提供接口时，需要一台轻量级的本地服务器来模拟数据作为后端接口使用
+
+##### ele-h5-server架构
+
+##### 使用json-server搭建mock-server

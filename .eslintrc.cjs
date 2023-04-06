@@ -11,5 +11,17 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest'
+  },
+  env: {
+    browser: true,
+    commonjs: true,
+    es6: true,
+    node: true
+  },
+  plugins: [
+    'vue'
+  ],
+  rules: {
+    "no-console":"error"
   }
 }
