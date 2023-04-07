@@ -274,5 +274,30 @@ const deviceWidth = document.documentElement.clientWidth;
 document.documentElement.style.fontSize = (deviceWidth * rootValue) / rootWidth + 'px';
 ```
 
+#### Vant-ui按需引入组件样式
+
+##### 安装
+```
+npm i unplugin-vue-components -D
+```
+
+##### vite.config.ts进行配置
+* vite.config.ts
+```
+// 引入插件
+import Components from 'unplugin-vue-components/vite';
+import { VantResolver } from 'unplugin-vue-components/resolvers';
+
+plugins: [
+  // 使用插件
+    Components({
+      resolvers: [VantResolver()]
+    })
+  ],
+```
+
+重新运行项目，目录会生成components.d.ts的文件，这个文件就是插件用来引入组件的地方
+
+
 
 

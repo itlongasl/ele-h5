@@ -4,6 +4,8 @@ import { createPinia } from 'pinia';
 import App from './App.vue';
 import router from './router';
 
+// import { Tabbar, TabbarItem } from 'vant';
+
 // import './assets/main.css'
 
 import 'vant/lib/index.css';
@@ -12,6 +14,8 @@ const app = createApp(App);
 
 app.use(createPinia());
 app.use(router);
+// app.use(Tabbar);
+// app.use(TabbarItem);
 
 // 设计稿中body的fontSize
 const rootValue = 16;
