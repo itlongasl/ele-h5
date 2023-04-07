@@ -233,3 +233,46 @@ instance.interceptors.response.use((response) => {
   return data;
 });
 ```
+
+#### (重点)使用post-css实现移动端适配
+
+##### 安装
+```
+npm i postcss autoprefixer postcss-pxtorem -D
+```
+
+##### 新建postcss.config.js
+
+```
+module.exports = {
+  plugins: {
+    autoprefixer: {
+      overrideBrowserslist: ['Android >= 4.0', 'iOS >= 7']
+    },
+    'postcss-pxtorem': {
+      // 根节点的fontSize
+      rootValue: 16,
+      // 将所有css文件的px替换为rem
+      propList: ['*'],
+      // 禁止替换:root,因为vant-ui有使用:root定义变量
+      selectorBlackList: [':root']
+    }
+  }
+};
+
+```
+
+##### main.ts添加以下数据
+```
+// 设计稿中body的fontSize
+const rootValue = 16;
+// 设计稿的屏幕宽度
+const rootWidth = 390;
+// 获取用户设备的屏幕宽度
+const deviceWidth = document.documentElement.clientWidth;
+// 真实body的fontSize = 真实屏幕宽度 * 设计稿body的字体 / 设计稿屏幕宽度
+document.documentElement.style.fontSize = (deviceWidth * rootValue) / rootWidth + 'px';
+```
+
+
+

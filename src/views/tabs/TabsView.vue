@@ -2,9 +2,6 @@
 import { Tabbar, TabbarItem } from 'vant';
 import { RouterView, useRoute, useRouter } from 'vue-router';
 import { ref, watch } from 'vue';
-import { testRequest } from '@/api/test';
-testRequest();
-
 // 拿到路由
 const route = useRoute();
 // 拿到路由器
